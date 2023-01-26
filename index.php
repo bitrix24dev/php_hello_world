@@ -1,2 +1,2 @@
 <?php
-echo "Hello supremacy!";
+echo "Hello supremacy!777";
