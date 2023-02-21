@@ -7,7 +7,7 @@ use Google\Cloud\Samples\CloudSQL\Postgres;
 
 $connection = Postgres\DatabaseUnix::initUnixDatabaseConnection();
 
-$time = time();
+$time = date("Y-m-d H:i:s");
 
 $data = [
     "name" => "test",
