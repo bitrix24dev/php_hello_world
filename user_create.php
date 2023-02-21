@@ -15,7 +15,7 @@ $data = [
     "updated" => $time,
     "email" => "123@mail.ru",
     "account_id" => 1,
-    "roles" => "",
+    "roles" => "{1,2}",
 ];
 
 $sql = "INSERT INTO users (name, created, updated, email, account_id, roles) VALUES (:name, :created, :updated, :email, :account_id,:roles)";
