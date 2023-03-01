@@ -18,6 +18,14 @@ $data = [
     "roles" => "{1,2}",
 ];
 
+// ищем, есть ли пользователь в базе с таким E-mail адресом
+
+$sql = "SELECT id FROM users where email=(:email)";
+$exists = $connection->prepare($sql)->fetch($sql);
+print_r($exists);
+die();
+
+
 $sql = "INSERT INTO users (name, created, updated, email, account_id, roles) VALUES (:name, :created, :updated, :email, :account_id,:roles)";
 $connection->prepare($sql)->execute($data);
 
