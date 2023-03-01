@@ -5,6 +5,11 @@ use Google\Cloud\Samples\CloudSQL\Postgres;
 
 // https://phpdelusions.net/pdo_examples/insert
 
+// пример вызова https://php-hello-world-h4b6my3gjq-uc.a.run.app/user_create.php
+
+// документация https://www.php.net/manual/en/book.pdo.php
+
+
 $connection = Postgres\DatabaseUnix::initUnixDatabaseConnection();
 
 $time = date("Y-m-d H:i:s");
@@ -20,8 +25,11 @@ $data = [
 
 // ищем, есть ли пользователь в базе с таким E-mail адресом
 
-$sql = "SELECT id FROM users where email=(:email)";
-$exists = $connection->prepare($sql)->fetch($sql);
+$sql = "SELECT id FROM users where email=:email";
+
+$stmt = $connection->prepare($sql);
+$stmt->execute(["email" => $data["email"]]);
+$exists = $stmt->fetch();
 print_r($exists);
 die();
 
