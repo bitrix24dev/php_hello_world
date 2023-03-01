@@ -31,12 +31,12 @@ $stmt = $connection->prepare($sql);
 $stmt->execute(["email" => $data["email"]]);
 $exists = $stmt->fetch();
 
-if (!$exists["id"]) {
+if (is_array($exists) && $exists["id"]) {
+    echo "Error. Exists user with such email address";
+} else {
     $sql = "INSERT INTO users (name, created, updated, email, account_id, roles) VALUES (:name, :created, :updated, :email, :account_id,:roles)";
     $connection->prepare($sql)->execute($data);
     echo "User Created";
-} else {
-    echo "Error. Exists user with such email address";
 }
 
 
