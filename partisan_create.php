@@ -38,11 +38,6 @@ $partisan_mock = [
     "closet_capacity" => 1000,
 ];
 
-$account_mock = [
-    "created" => $time,
-    "entitytype_id" => 1,
-    "amount_twei" => 2500,
-];
 
 // ищем, есть ли пользователь в базе с таким E-mail адресом
 
@@ -65,7 +60,7 @@ if (is_array($exists) && $exists["id"]) {
 
     // создаем аккаунт
     $sql = "INSERT INTO partisans (".implode(",",array_keys($partisan_mock)).") VALUES (".implode(",",$partisan_mock_keys_with_colon).")";
-    $connection->prepare($sql)->execute($account_mock);
+    $connection->prepare($sql)->execute($partisan_mock);
     $partisan_id = $connection->lastInsertId();
 
     $connection->commit();
