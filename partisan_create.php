@@ -46,7 +46,7 @@ $account_mock = [
 
 // ищем, есть ли пользователь в базе с таким E-mail адресом
 
-$sql = "SELECT id FROM users where nickname=:nickname";
+$sql = "SELECT id FROM partisans where nickname=:nickname";
 
 $stmt = $connection->prepare($sql);
 $stmt->execute(["nickname" => $partisan_mock["nickname"]]);
