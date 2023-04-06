@@ -14,6 +14,7 @@ $connection = Postgres\DatabaseUnix::initUnixDatabaseConnection();
 
 $time = date("Y-m-d H:i:s");
 
+
 $partisan_mock = [
     "active" => 1,
     "nickname" => "test_nickname",
